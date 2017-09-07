@@ -79,27 +79,36 @@ else {
           }
       
       console.log(numberOfGuessesRemaining);
+      console.log(letterAlreadyGuessed);
 
     }
 
 }
 
-if(numberOfGuessesRemaining ==0 ){
-    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-    numberOfGuessesRemaining = 12;
+if(numberOfGuessesRemaining ===0 ){
+    
     losses++;
-
-
     console.log("You Lost!");
     console.log(losses);
+    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    numberOfGuessesRemaining = 12;
+    letterAlreadyGuessed = [];
     console.log(computerPicked);
+     for(i=0; i<computerPicked.length; i++)
+    {   
+      currentWord[i] = "-";
+    //currentWord.push('-');
+    }
+
+    console.log(currentWord);
+
 }
 
 else if ((currentWord.join("")) === computerPicked) {
     console.log("You Won");
-    numberOfGuessesRemaining = 12;
     wins++;
     console.log(wins);
+    numberOfGuessesRemaining = 12;
     computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     console.log(computerPicked);
 
@@ -108,6 +117,8 @@ else if ((currentWord.join("")) === computerPicked) {
       currentWord[i] = "-";
     //currentWord.push('-');
     }
+
+    console.log(currentWord);
 
 }
 
