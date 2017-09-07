@@ -1,12 +1,17 @@
 var computerChoice;
-var computerPicked;
+var computerPicked = [];
 var currentWord = [];
 var letterAlreadyGuessed = [];
 var numberOfGuessesRemaining = 12;
+var losses= 0;
+var wins = 0;
 
-computerChoice = ["madonna","cat","barking","hello","pictures","dog"];
-computerPicked= [];
+computerChoice = ['madonna','cat','barking','hello','pictures','dog'];
+
 computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+
+
+
 
 
 console.log(computerPicked);
@@ -14,7 +19,9 @@ console.log(computerPicked);
 for(i=0; i<computerPicked.length; i++)
 {   
     currentWord[i] = "-";
+    //currentWord.push('-');
 }
+
 
 console.log(currentWord);
 
@@ -43,22 +50,75 @@ document.onkeyup = function(event){
     var ltrthere = computerPicked.includes(userGuessed);
     console.log(ltrthere);
 
-    
 
 //this loops through the array and replaces the _ with user guessed letters , works for multiple occurances
-    for (var i = 0; i < computerPicked.length; i++) {
+  /*  for (var i = 0; i < computerPicked.length; i++) {
          if(computerPicked[i] === userGuessed )
-             currentWord[i] = currentWord[i].replace("-",userGuessed)    
-        
+             currentWord[i] = currentWord[i].replace("-",userGuessed)  
+
     }
       console.log(numberOfGuessesRemaining);
       console.log(currentWord);
+*/
+
+if(numberOfGuessesRemaining!=0 || ((currentWord.join("")) != computerPicked)){
+      if(ltrthere){
+        for (var i = 0; i < computerPicked.length; i++) {
+               if(computerPicked[i] === userGuessed )
+                   currentWord[i] = currentWord[i].replace("-",userGuessed)  
+           }
+
+        console.log(currentWord);
+        console.log(numberOfGuessesRemaining);
+      }
+
+else {
+      if(!(letterAlreadyGuessed.includes(userGuessed))){
+           letterAlreadyGuessed.push(userGuessed); 
+           numberOfGuessesRemaining--;
+          }
+      
+      console.log(numberOfGuessesRemaining);
+
+    }
+
+}
+
+if(numberOfGuessesRemaining ==0 ){
+    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    numberOfGuessesRemaining = 12;
+    losses++;
 
 
-            if(ltrthere && numberOfGuessesRemaining !=0)
+    console.log("You Lost!");
+    console.log(losses);
+    console.log(computerPicked);
+}
+
+else if ((currentWord.join("")) === computerPicked) {
+    console.log("You Won");
+    numberOfGuessesRemaining = 12;
+    wins++;
+    console.log(wins);
+    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    console.log(computerPicked);
+
+    for(i=0; i<computerPicked.length; i++)
+    {   
+      currentWord[i] = "-";
+    //currentWord.push('-');
+    }
+
+}
+
+
+
+
+/*
+           if(ltrthere && numberOfGuessesRemaining !=0)
               {   var index = computerPicked.indexOf(userGuessed);
                   console.log(index);
-                  //currentWord.join();
+                  
                   currentWord[index] = currentWord[index].replace("-",userGuessed) ; //replacing the - with char inputted
                  
                  
@@ -66,7 +126,7 @@ document.onkeyup = function(event){
               }
 
             if (!ltrthere && numberOfGuessesRemaining !=0)
-            {
+            { 
                
                 if (letterAlreadyGuessed.indexOf(userGuessed) === -1) {
                           numberOfGuessesRemaining--;
@@ -76,7 +136,7 @@ document.onkeyup = function(event){
                 } 
 
             
-            }
+            }*/
   
  
 
@@ -177,3 +237,9 @@ document.onkeyup = function(event){
 11 . repeat steps 4 thourgh 9
 until number of guesses are zero or current word equals computer picked word(user guessed the word)
 */
+
+
+/*function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
+}*/
