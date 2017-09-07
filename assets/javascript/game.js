@@ -1,3 +1,4 @@
+//Variables needed for the game
 var computerChoice;
 var computerPicked = [];
 var currentWord = [];
@@ -5,12 +6,12 @@ var letterAlreadyGuessed = [];
 var numberOfGuessesRemaining = 12;
 var losses= 0;
 var wins = 0;
-
-computerChoice = ['madonna','cat','barking','hello','pictures','dog'];
-
-computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+var userGuessed;
 
 
+
+computerChoice = ['madonna','CAT','barking','hello','PIcTURES','dog'];
+computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
 
 
 
@@ -29,37 +30,19 @@ console.log(currentWord);
 document.onkeyup = function(event){
 
     var userGuessed = event.key;
+    userGuessed = userGuessed.toLowerCase();
 
     console.log(userGuessed);
-    document.getElementById("userGuessed").value = userGuessed;
+    
 
 
-/*code snippet for updating letter already guessed
-    if (letterAlreadyGuessed.indexOf(userGuessed) === -1) {
-         letterAlreadyGuessed.push(userGuessed);
-         console.log( 'Letters already guessed are', +letterAlreadyGuessed );
-    } 
 
-    else  if (letterAlreadyGuessed.indexOf(userGuessed) > -1){
-
-        console.log(userGuessed + ' Letter is already guessed ');
-    }
-   */
-    //console.log(letterAlreadyGuessed);
 
     var ltrthere = computerPicked.includes(userGuessed);
     console.log(ltrthere);
 
 
-//this loops through the array and replaces the _ with user guessed letters , works for multiple occurances
-  /*  for (var i = 0; i < computerPicked.length; i++) {
-         if(computerPicked[i] === userGuessed )
-             currentWord[i] = currentWord[i].replace("-",userGuessed)  
 
-    }
-      console.log(numberOfGuessesRemaining);
-      console.log(currentWord);
-*/
 
 if(numberOfGuessesRemaining!=0 || ((currentWord.join("")) != computerPicked)){
       if(ltrthere){
@@ -76,6 +59,8 @@ else {
       if(!(letterAlreadyGuessed.includes(userGuessed))){
            letterAlreadyGuessed.push(userGuessed); 
            numberOfGuessesRemaining--;
+          //document.getElementById("letterAlreadyGuessed").value = letterAlreadyGuessed;
+           //document.getElementById("numberOfGuessesRemaining").value = numberOfGuessesRemaining;
           }
       
       console.log(numberOfGuessesRemaining);
@@ -90,14 +75,15 @@ if(numberOfGuessesRemaining ===0 ){
     losses++;
     console.log("You Lost!");
     console.log(losses);
-    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
     numberOfGuessesRemaining = 12;
     letterAlreadyGuessed = [];
     console.log(computerPicked);
+    currentWord = [];
      for(i=0; i<computerPicked.length; i++)
     {   
       currentWord[i] = "-";
-    //currentWord.push('-');
+      //currentWord.push('-');
     }
 
     console.log(currentWord);
@@ -109,64 +95,31 @@ else if ((currentWord.join("")) === computerPicked) {
     wins++;
     console.log(wins);
     numberOfGuessesRemaining = 12;
-    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
     console.log(computerPicked);
-
+    letterAlreadyGuessed = [];//letters already guessed reset added
+    currentWord = [];//current word reset added
     for(i=0; i<computerPicked.length; i++)
     {   
       currentWord[i] = "-";
-    //currentWord.push('-');
+     //currentWord.push('-');
     }
 
     console.log(currentWord);
 
-}
+ }
 
 
+ var html =
+          "<p>You chose: " + userGuessed + "</p>" +
+          "<p>The computer chose: " + computerPicked + "</p>" +
+          "<p>wins: " + wins + "</p>" +
+          "<p>losses: " + losses + "</p>" +
+          "<p>numberOfGuessesRemaining: " + numberOfGuessesRemaining + "</p>" + 
+          "<p>currentWord: " + currentWord + "</p>" + 
+          "<p>letterAlreadyGuessed: " + letterAlreadyGuessed + "</p>" ;
 
-
-/*
-           if(ltrthere && numberOfGuessesRemaining !=0)
-              {   var index = computerPicked.indexOf(userGuessed);
-                  console.log(index);
-                  
-                  currentWord[index] = currentWord[index].replace("-",userGuessed) ; //replacing the - with char inputted
-                 
-                 
-                  //console.log(currentWord);//printing the curr word
-              }
-
-            if (!ltrthere && numberOfGuessesRemaining !=0)
-            { 
-               
-                if (letterAlreadyGuessed.indexOf(userGuessed) === -1) {
-                          numberOfGuessesRemaining--;
-                          letterAlreadyGuessed.push(userGuessed);
-                          console.log( 'Letters already guessed are', letterAlreadyGuessed );
-                          console.log(numberOfGuessesRemaining);
-                } 
-
-            
-            }*/
-  
- 
-
-    //var letterGuessed = letterAlreadyGuessed.indexOf('userGuessed');
-
-    //var letterGuessed = letterAlreadyGuessed.indexOf('p');
-
-    //console.log(letterGuessed);
-
-    //if(letterGuessed != -1)
-    //console.log("letter guessed exists in the array");
-    //else
-    //console.log("letter guessed does not exist in the word");
-
-
-
-
-
-
+document.querySelector("#Hangman").innerHTML = html;
 
 }
 
@@ -250,7 +203,3 @@ until number of guesses are zero or current word equals computer picked word(use
 */
 
 
-/*function setCharAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substr(0,index) + chr + str.substr(index+1);
-}*/
