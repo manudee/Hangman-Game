@@ -3,8 +3,9 @@
 <head>
     <title>The Hangman</title>
     <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-<body>
+<body onload="addParts();">
 <div id="Hangman">
 
 <h1>The Hangman</h1>
@@ -18,8 +19,9 @@
         computerChoice: <input type="text" id="computerChoice" value=""><br>
         ComputerPicked: <input type="text" id="ComputerPicked" value=""><br>-->
 
+</div>
 
-
+<canvas id="hangmanDrawing" width="400" height="400"></canvas>
 
 </body>
 </html>

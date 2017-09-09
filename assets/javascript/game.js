@@ -3,7 +3,7 @@ var computerChoice;
 var computerPicked = [];
 var currentWord = [];
 var letterAlreadyGuessed = [];
-var numberOfGuessesRemaining = 12;
+var numberOfGuessesRemaining = 10;
 var losses= 0;
 var wins = 0;
 var userGuessed;
@@ -14,6 +14,219 @@ computerChoice = ['madonna','CAT','barking','hello','PIcTURES','dog'];
 computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
 
 
+
+function horizontalLine1(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+            ctx.moveTo(200,400);
+            ctx.lineTo(0,400);
+            ctx.stroke();
+
+  }
+
+}
+
+function verticalPole(){
+   var c = document.getElementById("hangmanDrawing");
+
+           if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(0,400);
+           ctx.lineTo(0,0);
+           ctx.stroke();
+
+}
+}
+
+
+function horizontalLine2(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+            ctx.moveTo(0,0);
+            ctx.lineTo(200,0);
+            ctx.stroke();
+
+
+  }
+
+}
+
+
+function verticalLine(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,0);
+           ctx.lineTo(200,80);
+           ctx.stroke();
+
+  }
+
+}
+
+function head(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.beginPath();
+           ctx.arc(200,120,40,0,2*Math.PI);
+           ctx.stroke(); 
+  }
+
+}
+
+function verticalLine3(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,160);
+           ctx.lineTo(200,350);
+           ctx.stroke();
+
+}
+
+}
+
+
+function leftHand1(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,180);
+           ctx.lineTo(150,220);
+           ctx.stroke();
+
+}
+
+}
+
+function rightHand1(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,180);
+           ctx.lineTo(250,220);
+           ctx.stroke();
+
+}
+
+}
+
+function leftHand2(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,300)
+           ctx.lineTo(150,350);
+           ctx.stroke();
+
+}
+
+}
+
+function rightHand2(){
+  var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+            var ctx = c.getContext('2d');
+           ctx.moveTo(200,300)
+           ctx.lineTo(250,350);
+           ctx.stroke();
+
+}
+
+}
+
+/*
+function drawHangman(){
+    var c = document.getElementById("hangmanDrawing");
+
+           if (c.getContext) {
+            var ctx = c.getContext('2d');
+          
+           ctx.moveTo(200,400);
+           ctx.lineTo(0,400);
+           ctx.stroke();
+
+           ctx.moveTo(0,400);
+           ctx.lineTo(0,0);
+           ctx.stroke();
+
+           ctx.moveTo(0,0);
+           ctx.lineTo(200,0);
+           ctx.stroke();
+
+           ctx.moveTo(200,0);
+           ctx.lineTo(200,80);
+           ctx.stroke();
+
+           ctx.beginPath();
+           ctx.arc(200,120,40,0,2*Math.PI);
+           ctx.stroke(); 
+
+           ctx.moveTo(200,160);
+           ctx.lineTo(200,350);
+           ctx.stroke();
+
+           ctx.moveTo(200,180);
+           ctx.lineTo(150,220);
+           ctx.stroke();
+
+           ctx.moveTo(200,180);
+           ctx.lineTo(250,220);
+           ctx.stroke();
+
+           ctx.moveTo(200,300)
+           ctx.lineTo(150,350);
+           ctx.stroke();
+
+           ctx.moveTo(200,300)
+           ctx.lineTo(250,350);
+           ctx.stroke();
+
+          }
+
+
+}
+*/
+
+function addParts(num){
+  switch(num){
+    case 9:
+      horizontalLine1();
+      break;
+    case 8:
+      verticalPole();
+      break;
+    case 7:
+      horizontalLine2();
+      break;
+    case 6:
+      verticalLine();
+      break;
+    case 5:
+      head();
+      break;
+    case 4:
+      verticalLine3();
+      break;
+    case 3:
+      leftHand1();
+      break;
+    case 2:
+      rightHand1();
+      break;
+    case 1:
+      leftHand2();
+      break;
+    case 0:
+      rightHand2();
+      break;
+   
+    
+   }
+}
 
 console.log(computerPicked);
 
@@ -60,8 +273,9 @@ else {
            letterAlreadyGuessed.push(userGuessed); 
            numberOfGuessesRemaining--;
           //document.getElementById("letterAlreadyGuessed").value = letterAlreadyGuessed;
-           //document.getElementById("numberOfGuessesRemaining").value = numberOfGuessesRemaining;
-          }
+          //document.getElementById("numberOfGuessesRemaining").value = numberOfGuessesRemaining;
+
+          addParts(numberOfGuessesRemaining);
       
       console.log(numberOfGuessesRemaining);
       console.log(letterAlreadyGuessed);
@@ -76,7 +290,7 @@ if(numberOfGuessesRemaining ===0 ){
     console.log("You Lost!");
     console.log(losses);
     computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
-    numberOfGuessesRemaining = 12;
+    numberOfGuessesRemaining = 10;
     letterAlreadyGuessed = [];
     console.log(computerPicked);
     currentWord = [];
@@ -88,13 +302,14 @@ if(numberOfGuessesRemaining ===0 ){
 
     console.log(currentWord);
 
+
 }
 
 else if ((currentWord.join("")) === computerPicked) {
     console.log("You Won");
     wins++;
     console.log(wins);
-    numberOfGuessesRemaining = 12;
+    numberOfGuessesRemaining = 10;
     computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
     console.log(computerPicked);
     letterAlreadyGuessed = [];//letters already guessed reset added
@@ -120,6 +335,12 @@ else if ((currentWord.join("")) === computerPicked) {
           "<p>letterAlreadyGuessed: " + letterAlreadyGuessed + "</p>" ;
 
 document.querySelector("#Hangman").innerHTML = html;
+
+
+
+
+}
+
 
 }
 
