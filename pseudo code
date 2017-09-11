@@ -69,3 +69,57 @@
  
 11 . repeat steps 4 thourgh 9
 until number of guesses are zero or current word equals computer picked word(user guessed the word)
+
+
+/*
+function drawHangman(){
+    var c = document.getElementById("hangmanDrawing");
+
+           if (c.getContext) {
+            var ctx = c.getContext('2d');
+          
+           ctx.moveTo(200,400);
+           ctx.lineTo(0,400);
+           ctx.stroke();
+
+           ctx.moveTo(0,400);
+           ctx.lineTo(0,0);
+           ctx.stroke();
+
+           ctx.moveTo(0,0);
+           ctx.lineTo(200,0);
+           ctx.stroke();
+
+           ctx.moveTo(200,0);
+           ctx.lineTo(200,80);
+           ctx.stroke();
+
+           ctx.beginPath();
+           ctx.arc(200,120,40,0,2*Math.PI);
+           ctx.stroke(); 
+
+           ctx.moveTo(200,160);
+           ctx.lineTo(200,350);
+           ctx.stroke();
+
+           ctx.moveTo(200,180);
+           ctx.lineTo(150,220);
+           ctx.stroke();
+
+           ctx.moveTo(200,180);
+           ctx.lineTo(250,220);
+           ctx.stroke();
+
+           ctx.moveTo(200,300)
+           ctx.lineTo(150,350);
+           ctx.stroke();
+
+           ctx.moveTo(200,300)
+           ctx.lineTo(250,350);
+           ctx.stroke();
+
+          }
+
+
+}
+*/

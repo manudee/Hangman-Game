@@ -4,24 +4,34 @@
     <title>The Hangman</title>
     <script src="assets/javascript/game.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body onload="addParts();">
+
+<body  onload="addParts();">
+
+<div class="container-fluid">
+<div class="jumbotron">
+<h1>The Hangman</h1>
+
+</div>
+<p>Press any key to continue</p>
 <div id="Hangman">
 
-<h1>The Hangman</h1>
-<p>Press any key to continue</p>
 
- 
-       <!-- Wins: <input type="text" id="wins" value=""><br>
-        userGuessed: <input type="text" id="userGuessed" value=""><br>
-        numberOfGuessesRemaining: <input type="text" id="numberOfGuessesRemaining" value=""><br>
-        lettersAlreadyGuessed: <input type="text" id="lettersAlreadyGuessed" value=""><br>
-        computerChoice: <input type="text" id="computerChoice" value=""><br>
-        ComputerPicked: <input type="text" id="ComputerPicked" value=""><br>-->
+
+		<p>You chose:</p>
+		<p>Wins:</p>
+        <p>userGuessed: </p>
+        <p>numberOfGuessesRemaining: </p>
+        <p>Curren Word: </p>
+        <p>lettersAlreadyGuessed:</p>
+       
+
 
 </div>
 
+<img src="assets/images/hangman.jpg" class="img-thumbnail pull-left img-responsive">
 <canvas id="hangmanDrawing" width="400" height="400"></canvas>
-
+</div>
 </body>
 </html>
