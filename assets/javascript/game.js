@@ -215,16 +215,16 @@ function addParts(num){
    }
 }
 
-console.log(computerPicked);
+//console.log(computerPicked);
 
 for(i=0; i<computerPicked.length; i++)
 {   
     currentWord[i] = "-";
-    //currentWord.push('-');
+    
 }
 
 
-console.log(currentWord);
+//console.log(currentWord);
 
 
 document.onkeyup = function(event){
@@ -232,14 +232,14 @@ document.onkeyup = function(event){
     var userGuessed = event.key;
     userGuessed = userGuessed.toLowerCase();
 
-    console.log(userGuessed);
+    //console.log(userGuessed);
     
 
 
 
 
     var ltrthere = computerPicked.includes(userGuessed);
-    console.log(ltrthere);
+    //console.log(ltrthere);
 
 
 
@@ -251,8 +251,8 @@ if(numberOfGuessesRemaining!=0 || ((currentWord.join("")) != computerPicked)){
                    currentWord[i] = currentWord[i].replace("-",userGuessed)  
            }
 
-        console.log(currentWord);
-        console.log(numberOfGuessesRemaining);
+        //console.log(currentWord);
+        //console.log(numberOfGuessesRemaining);
       }
 
 else {
@@ -264,8 +264,8 @@ else {
 
           addParts(numberOfGuessesRemaining);
           
-      console.log(numberOfGuessesRemaining);
-      console.log(letterAlreadyGuessed);
+      //console.log(numberOfGuessesRemaining);
+      //console.log(letterAlreadyGuessed);
 
     }
 
@@ -274,13 +274,13 @@ else {
 if(numberOfGuessesRemaining ===0 ){
     addParts(numberOfGuessesRemaining);
     losses++;
-    console.log("You Lost!");
-    console.log(losses);
+    alert("You Lost!");
+    //console.log(losses);
     reset();
     // computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
     // numberOfGuessesRemaining = 10;
     // letterAlreadyGuessed = [];
-    console.log(computerPicked);
+    //console.log(computerPicked);
     // currentWord = [];
      // for(i=0; i<computerPicked.length; i++)
     // {   
@@ -288,7 +288,7 @@ if(numberOfGuessesRemaining ===0 ){
       
     // }
 
-    console.log(currentWord);
+    //console.log(currentWord);
 
 
 }
@@ -302,7 +302,7 @@ else if ((currentWord.join("")) === computerPicked) {
     // numberOfGuessesRemaining = 10;
 
    //computerPicked = computerChoice[Math.flloor(Math.random() * computerChoice.length)].toLowerCase();
-    console.log(computerPicked);
+    //console.log(computerPicked);
     
     //letterAlreadyGuessed = [];//letters already guessed reset added
     //currentWord = [];//current word reset added
@@ -312,24 +312,27 @@ else if ((currentWord.join("")) === computerPicked) {
      //currentWord.push('-');
     //}
 
-    console.log(currentWord);
+    //console.log(currentWord);
 
  }
 
 
- var html =
-          
-          "<p>You chose: " + userGuessed + "</p>" +
-          "<p>wins: " + wins + "</p>" +
-          "<p>losses: " + losses + "</p>" +
-          "<p>numberOfGuessesRemaining: " + numberOfGuessesRemaining + "</p>" + 
-          "<p>currentWord: " + currentWord + "</p>" + 
-          "<p>letterAlreadyGuessed: " + letterAlreadyGuessed + "</p>" ;
-         
-document.querySelector("#Hangman").innerHTML = html;
+
+var currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
+document.querySelector("#current_word").innerHTML = currentWord_html;
+
+var wins_html = "<h2>Wins: " + wins + "</h2>";
+document.querySelector("#wins").innerHTML = wins_html;
 
 
+var losses_html=  "<h2>Losses: " + losses + "</h2>";
+document.querySelector("#losses").innerHTML = losses_html;
 
+var letters_guessed_html=  "<h2>Letters Guessed: " + letterAlreadyGuessed + "</h2>";
+document.querySelector("#letters_guessed").innerHTML = letters_guessed_html;
+
+var guesses_remaining_html = "<h2>Guesses Remaining: " + numberOfGuessesRemaining + "</h2>";
+document.querySelector("#numberOfGuessesRemaining").innerHTML = guesses_remaining_html;
 
 }
 

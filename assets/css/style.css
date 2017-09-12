@@ -13,6 +13,11 @@ canvas{
 
 
 
-.text{
-	color: white;
+
+.jumbotron, .panel{
+	background-color: #78b698 !important;
+}
+
+.panel {
+	color: blue solid 5px!important;
 }
