@@ -10,7 +10,7 @@ var userGuessed;
 
 
 
-computerChoice = ['madonna','CAT','barking','hello','PIcTURES','dog'];
+computerChoice = ['Asia','Australia','AMERICA','Antarctica','Africa','Europe'];
 computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
 
 

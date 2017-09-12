@@ -4,6 +4,11 @@
 	
 }
 
+body{
+	background-image: url('../images/sea.jpg');
+	width: 100%;
+}
+
 canvas{
 
 	border: 1px solid black;
