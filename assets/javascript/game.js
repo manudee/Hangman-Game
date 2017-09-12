@@ -10,6 +10,10 @@ var userGuessed;
 
 
 
+var images = ['assets/images/asia.jpg', 'assets/images/australia.jpg','assets/images/America.jpg','assets/images/Antarctica.jpg' ,'assets/images/africa.jpg' ,'assets/images/europe.jpg'  ];
+
+
+
 computerChoice = ['Asia','Australia','AMERICA','Antarctica','Africa','Europe'];
 computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length)].toLowerCase();
 
@@ -24,7 +28,7 @@ function reset(){
     numberOfGuessesRemaining = 10;
     letterAlreadyGuessed = [];
     currentWord = [];
-
+    console.log("In reset now");
     for(i=0; i<computerPicked.length; i++)
     {   
       currentWord[i] = "-";
@@ -38,11 +42,11 @@ function reset(){
 //to reset the canvas area when user has lost or won the game
 function canvasReset() {
    var c = document.getElementById("hangmanDrawing");
-  
+    console.log("In canvas reset  now");
        var ctx = c.getContext('2d');
        ctx.clearRect(0, 0, 400, 400);
        ctx.beginPath();
-  
+     console.log("After canvas reset  now");
   
 }
 
@@ -177,6 +181,48 @@ function rightHand2(){
 }
 
 
+function victoryImage(computerPicked){
+   console.log(computerPicked);
+   //console.log(images[1]);
+   console.log(computerChoice[1].toLowerCase());
+   //console.log(computerChoice.length);
+   var c = document.getElementById("hangmanDrawing");
+    if (c.getContext) {
+        var ctx = c.getContext('2d');
+
+         for (var i = 0; i < computerChoice.length; i++) {
+         if((computerPicked) === computerChoice[i].toLowerCase()){
+
+                console.log("I am in comparison");
+                      var img1 = new Image();
+                      img1.src = images[i];
+               
+                 img1.onload = function () {
+                    //draw background image
+                    ctx.drawImage(img1, 0, 0);
+                    img1.src = [];
+                    console.log("Image reset done");
+                }; 
+
+
+           }
+
+
+ }
+
+ }
+} 
+
+/*
+  for (var i = 0; i < computerChoice.length; i++) {
+      if(computerPicked === computerChoice[i]){
+          
+      }*/
+
+      
+
+
+
 function addParts(num){
   switch(num){
     case 9:
@@ -298,6 +344,10 @@ else if ((currentWord.join("")) === computerPicked) {
     wins++;
     console.log(wins);
     snd.play();
+
+    victoryImage(computerPicked);
+    //alert("Congrats, You reached " + computerPicked);
+    console.log("I am done with comparison, calling reset now");
     reset();
     // numberOfGuessesRemaining = 10;
 
