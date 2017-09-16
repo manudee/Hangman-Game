@@ -10,13 +10,13 @@ var userGuessed;
 
 
 
-/*var images = ['assets/images/asia.jpg', 'assets/images/australia.jpg','assets/images/America.jpg',
+var images = ['assets/images/asia.jpg', 'assets/images/australia.jpg','assets/images/America.jpg',
 'assets/images/Antarctica.jpg' ,'assets/images/africa.jpg' ,'assets/images/europe.jpg',
 'assets/images/dubai.jpg' ,'assets/images/egypt.jpg' ,'assets/images/hawaii.jpg' ,
 'assets/images/iceland.jpg' ,'assets/images/italy.jpg' ,'assets/images/london.jpg' ,
 'assets/images/malaysia.jpg' ,'assets/images/singapore.jpg' ,'assets/images/spain.jpg' 
 ];
-*/
+
 
 
 computerChoice = ['Asia','Australia','AMERICA','Antarctica','Africa','Europe', 'Dubai', 'Egypy','hawaii',
@@ -308,11 +308,9 @@ if(numberOfGuessesRemaining!=0 || ((currentWord.join("")) != computerPicked)){
         for (var i = 0; i < computerPicked.length; i++) {
                if(computerPicked[i] === userGuessed )
                    currentWord[i] = currentWord[i].replace("-",userGuessed)  
-                   currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
-                   document.querySelector("#current_word").innerHTML = currentWord_html;
                 }
 
-                  
+      console.log("GUesses remaining are" + numberOfGuessesRemaining);
        }
 
       else {
@@ -351,7 +349,8 @@ else if ((currentWord.join("")) === computerPicked) {
 
 
 
-
+currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
+document.querySelector("#current_word").innerHTML = currentWord_html;
 
 wins_html = "<h2>Wins: " + wins + "</h2>";
 document.querySelector("#wins").innerHTML = wins_html;
