@@ -26,6 +26,11 @@ Happy playing!!
    * CSS
    * BootStrap
    * Javascript
+   
+   
+# Preview
+![GitHub Logo](assets/images/sea.jpg)
+Format: ![Alt Text](url)
 
 # Author
 Manasi Sukthankar
