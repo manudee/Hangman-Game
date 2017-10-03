@@ -30,7 +30,7 @@ Happy playing!!
    
 # Preview
 ![GitHub Logo](assets/images/HangMan.JPG)
-Format: ![Alt Text](url)
+
 
 # Author
 Manasi Sukthankar
