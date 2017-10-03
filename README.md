@@ -21,3 +21,10 @@ HINT: Words are from the group (countries or continents)
 
 Happy playing!!
 
+# Built With
+HTML
+CSS, BootStrap
+Javascript
+
+#Author
+Manasi Sukthankar
