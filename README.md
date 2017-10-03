@@ -7,6 +7,7 @@ You have 10 guesses at the beginning of the game.
 
 Try to guess the letters as you go.
 
+# Getting Started
 Here are some Rules:
 1. For each correct letter you press , I will be revealing them on the screen.
 2. If you guess it incorrectly, you will lose 1 guess from the total remaining guesses at that point.
@@ -19,3 +20,4 @@ Here are some Rules:
 HINT: Words are from the group (countries or continents)
 
 Happy playing!!
+
