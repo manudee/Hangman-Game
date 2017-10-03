@@ -29,7 +29,7 @@ Happy playing!!
    
    
 # Preview
-![GitHub Logo](assets/images/sea.jpg)
+![GitHub Logo](assets/images/HangMan.jpg)
 Format: ![Alt Text](url)
 
 # Author
